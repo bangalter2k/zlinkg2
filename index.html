@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Links Solutions — página de links e roteamento de WhatsApp para times comerciais</title>
+<meta name="description" content="Crie uma página de contato para cada vendedor, distribua os cliques entre os WhatsApps do time e veja quais canais geram conversa. Software B2B, em beta fechado.">
+<meta name="author" content="Links Solutions Software LTDA">
+<link rel="canonical" href="https://www.zlinks.com.br/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Links Solutions">
+<meta property="og:title" content="Links Solutions — página de links e roteamento de WhatsApp para times comerciais">
+<meta property="og:description" content="Uma página de contato por vendedor, rodízio de WhatsApp e métricas de clique por botão.">
+<meta property="og:url" content="https://www.zlinks.com.br/">
+<meta property="og:image" content="https://www.zlinks.com.br/capa.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#7A1F2B">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%237A1F2B'/%3E%3Cpath d='M9 10h14L9 22h14' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='square'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --papel:#ffffff;
+  --areia:#efece6;
+  --tinta:#221f1e;
+  --tinta-media:#5b5450;
+  --linha:#d9d3ca;
+  --vinho:#7a1f2b;
+  --vinho-escuro:#5a141e;
+  --sinal:#1d6b66;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --texto:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --largura:1120px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  background:var(--papel);
+  color:var(--tinta);
+  font-family:var(--texto);
+  font-size:17px;
+  line-height:1.65;
+  text-rendering:optimizeLegibility;
+}
+
+h1,h2,h3,h4,.fonte-display{font-family:var(--display);font-weight:700;letter-spacing:-.025em;line-height:1.1}
+
+a{color:var(--vinho)}
+
+:focus-visible{outline:2px solid var(--vinho);outline-offset:3px;border-radius:2px}
+
+.pular{position:absolute;left:-9999px;top:0;background:var(--tinta);color:#fff;padding:.75rem 1rem;z-index:99}
+.pular:focus{left:0}
+
+.envelope{width:100%;max-width:var(--largura);margin-inline:auto;padding-inline:1.5rem}
+
+/* ---------- cabeçalho ---------- */
+.topo{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(1.4) blur(8px);
+  border-bottom:1px solid var(--linha);
+}
+.topo-interno{display:flex;align-items:center;gap:2rem;min-height:68px}
+.marca{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-size:1.2rem;font-weight:700;color:var(--tinta);text-decoration:none;letter-spacing:-.03em}
+.marca svg{display:block}
+.menu{margin-left:auto;display:flex;align-items:center;gap:1.75rem}
+.menu a{font-family:var(--display);font-size:.94rem;font-weight:500;color:var(--tinta-media);text-decoration:none}
+.menu a:hover{color:var(--tinta)}
+
+.botao{
+  display:inline-block;
+  font-family:var(--display);font-weight:600;font-size:.95rem;
+  background:var(--vinho);color:#fff;
+  padding:.7rem 1.3rem;border-radius:4px;
+  text-decoration:none;border:1px solid var(--vinho);
+  transition:background .15s ease;
+}
+.botao:hover{background:var(--vinho-escuro);border-color:var(--vinho-escuro)}
+.botao.discreto{background:transparent;color:var(--vinho);border-color:var(--linha)}
+.botao.discreto:hover{background:var(--areia);border-color:var(--vinho)}
+.botao.largo{width:100%;text-align:center}
+
+.abrir-menu{display:none;margin-left:auto;background:none;border:1px solid var(--linha);border-radius:4px;padding:.5rem .7rem;font-family:var(--display);font-weight:600;font-size:.9rem;color:var(--tinta);cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{padding:4.5rem 0 4rem}
+.hero-grade{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
+.hero h1{font-size:clamp(2.3rem,5vw,3.6rem);margin-bottom:1.4rem}
+.hero .chamada{font-size:1.12rem;color:var(--tinta-media);max-width:34rem;margin-bottom:2rem}
+.hero-acoes{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.nota-beta{font-size:.9rem;color:var(--tinta-media);margin-top:1.4rem;padding-left:.9rem;border-left:2px solid var(--sinal)}
+
+/* diagrama do hero */
+.diagrama{background:var(--areia);border:1px solid var(--linha);border-radius:8px;padding:1.75rem}
+.tela{background:#fff;border:1px solid var(--linha);border-radius:6px;padding:1.1rem;max-width:19rem;margin-inline:auto}
+.tela-topo{display:flex;align-items:center;gap:.6rem;padding-bottom:.85rem;border-bottom:1px solid var(--linha);margin-bottom:.85rem}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--vinho);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:.85rem}
+.tela-topo strong{font-family:var(--display);font-size:.92rem;display:block;letter-spacing:-.01em}
+.tela-topo span{font-size:.78rem;color:var(--tinta-media)}
+.link-falso{display:flex;justify-content:space-between;align-items:center;font-family:var(--display);font-size:.86rem;font-weight:500;border:1px solid var(--linha);border-radius:4px;padding:.55rem .75rem;margin-bottom:.5rem}
+.link-falso.destaque{border-color:var(--vinho);background:#fff;box-shadow:inset 3px 0 0 var(--vinho)}
+.link-falso em{font-style:normal;font-family:var(--texto);font-size:.78rem;color:var(--tinta-media)}
+.rota{margin-top:1.4rem;text-align:center}
+.rota-titulo{font-family:var(--display);font-size:.78rem;font-weight:600;color:var(--tinta-media);margin-bottom:.7rem}
+.rota-lista{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap}
+.vendedor{font-family:var(--display);font-size:.82rem;font-weight:500;background:#fff;border:1px solid var(--linha);border-radius:20px;padding:.35rem .85rem;color:var(--tinta-media);transition:background .3s ease,color .3s ease,border-color .3s ease}
+.vendedor.ativo{background:var(--sinal);border-color:var(--sinal);color:#fff}
+
+/* ---------- seções ---------- */
+.faixa{padding:4.5rem 0;border-top:1px solid var(--linha)}
+.faixa.clara{background:var(--areia)}
+.titulo-secao{font-size:clamp(1.6rem,3vw,2.25rem);max-width:24ch;margin-bottom:.9rem}
+.sub-secao{color:var(--tinta-media);max-width:56ch;margin-bottom:2.75rem}
+
+/* recursos como lista, não como cartões iguais */
+.recursos{border-top:1px solid var(--linha)}
+.recurso{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;padding:1.9rem 0;border-bottom:1px solid var(--linha);align-items:start}
+.recurso-rotulo{font-family:var(--display);font-size:1.05rem;font-weight:600;width:13rem;letter-spacing:-.01em}
+.recurso p{color:var(--tinta-media);max-width:52ch}
+
+/* passos: sequência real, numeração justificada */
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;counter-reset:passo}
+.passo{counter-increment:passo}
+.passo::before{
+  content:counter(passo);
+  display:block;font-family:var(--display);font-weight:700;font-size:1rem;
+  color:var(--vinho);border-top:2px solid var(--vinho);
+  padding-top:.55rem;margin-bottom:.7rem;
+}
+.passo h3{font-size:1.05rem;margin-bottom:.45rem}
+.passo p{color:var(--tinta-media);font-size:.97rem}
+
+/* preços */
+.planos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;max-width:760px}
+.plano{background:var(--papel);border:1px solid var(--linha);border-radius:8px;padding:2rem;display:flex;flex-direction:column}
+.plano.principal{border-color:var(--vinho);border-width:2px}
+.selo{display:inline-block;font-family:var(--display);font-size:.72rem;font-weight:600;color:var(--vinho);border:1px solid var(--vinho);border-radius:3px;padding:.15rem .5rem;margin-bottom:.8rem}
+.plano h3{font-size:1.15rem;margin-bottom:.3rem}
+.plano .resumo{font-size:.93rem;color:var(--tinta-media);margin-bottom:1.2rem}
+.preco{font-family:var(--display);font-size:2.6rem;font-weight:700;letter-spacing:-.04em;line-height:1}
+.preco span{font-family:var(--texto);font-size:.95rem;font-weight:400;color:var(--tinta-media);letter-spacing:0}
+.plano ul{list-style:none;margin:1.5rem 0 1.75rem;font-size:.95rem}
+.plano li{position:relative;padding-left:1.4rem;margin-bottom:.55rem;color:var(--tinta-media)}
+.plano li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-left:2px solid var(--sinal);border-bottom:2px solid var(--sinal);transform:rotate(-45deg)}
+.plano li.ausente{color:#8a827e}
+.plano li.ausente::before{content:"—";border:0;transform:none;top:0;color:#a89f99;font-weight:600}
+.plano .botao{margin-top:auto}
+.aviso-preco{font-size:.88rem;color:var(--tinta-media);margin-top:1.75rem;max-width:56ch}
+
+/* perguntas e documentos */
+.bloco{border-top:1px solid var(--linha);max-width:820px}
+details{border-bottom:1px solid var(--linha)}
+summary{
+  font-family:var(--display);font-weight:600;font-size:1.02rem;
+  padding:1.15rem 2.5rem 1.15rem 0;cursor:pointer;position:relative;list-style:none;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:.4rem;top:1rem;font-size:1.4rem;font-weight:500;color:var(--vinho)}
+details[open] summary::after{content:"–"}
+.conteudo{padding:0 0 1.6rem;color:var(--tinta-media);font-size:.97rem;max-width:70ch}
+.conteudo p{margin-bottom:.9rem}
+.conteudo p:last-child{margin-bottom:0}
+.conteudo h4{font-size:.95rem;margin:1.3rem 0 .45rem;color:var(--tinta)}
+.conteudo ul{margin:0 0 .9rem 1.2rem}
+.conteudo li{margin-bottom:.35rem}
+.atualizado{font-size:.85rem;color:#8a827e;margin-bottom:1rem}
+mark.preencher{background:#f7e9c9;color:var(--tinta);padding:0 .25rem;border-radius:2px}
+
+/* contato */
+.contato-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;border-top:1px solid var(--linha);padding-top:2rem}
+.contato-item h3{font-size:.95rem;margin-bottom:.4rem}
+.contato-item p{font-size:.95rem;color:var(--tinta-media)}
+
+/* rodapé */
+.rodape{background:var(--tinta);color:#c9c2bd;padding:3rem 0 2.5rem;font-size:.9rem}
+.rodape a{color:#e8e2dd}
+.rodape-grade{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start;padding-bottom:2rem;border-bottom:1px solid #3b3634}
+.rodape-links{display:flex;gap:1.5rem;flex-wrap:wrap;font-family:var(--display);font-size:.9rem}
+.rodape-dados{padding-top:1.75rem;font-size:.83rem;line-height:1.8;color:#a49c97}
+.rodape .marca{color:#fff}
+
+@media (max-width:900px){
+  .hero-grade{grid-template-columns:1fr;gap:3rem}
+  .passos{grid-template-columns:1fr;gap:1.75rem}
+  .contato-grade{grid-template-columns:1fr;gap:1.5rem}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .abrir-menu{display:block}
+  .menu{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--papel);border-bottom:1px solid var(--linha);padding:.5rem 1.5rem 1.25rem;
+  }
+  .menu.aberto{display:flex}
+  .menu a{padding:.7rem 0;border-bottom:1px solid var(--linha)}
+  .menu .botao{margin-top:.9rem;text-align:center;border-bottom:0}
+  .hero{padding:3rem 0}
+  .recurso{grid-template-columns:1fr;gap:.4rem}
+  .recurso-rotulo{width:auto}
+  .planos{grid-template-columns:1fr}
+  .faixa{padding:3.25rem 0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+}
+</style>
+</head>
+
+<body>
+<a class="pular" href="#conteudo">Ir para o conteúdo</a>
+
+<header class="topo">
+  <div class="envelope topo-interno">
+    <a class="marca" href="#topo">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#7A1F2B"/><path d="M9 10h14L9 22h14" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="square"/></svg>
+      Links Solutions
+    </a>
+    <button class="abrir-menu" id="abrirMenu" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav class="menu" id="menu" aria-label="Navegação principal">
+      <a href="#recursos">Recursos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#precos">Preços</a>
+      <a href="#documentos">Documentos</a>
+      <a href="#contato">Contato</a>
+      <a href="./login.html" class="botao">Acessar painel</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="hero" id="topo">
+    <div class="envelope hero-grade">
+      <div>
+        <h1>Um link de contato para cada vendedor, com o time inteiro no mesmo painel</h1>
+        <p class="chamada">O Links Solutions cria a página de contato de cada pessoa do comercial, distribui os cliques entre os WhatsApps da equipe e mostra qual canal está gerando conversa de verdade.</p>
+        <div class="hero-acoes">
+          <a href="#precos" class="botao">Entrar no beta gratuito</a>
+          <a href="#como-funciona" class="botao discreto">Ver como funciona</a>
+        </div>
+        <p class="nota-beta">Beta fechado. Cada cadastro passa por aprovação manual da equipe técnica e o retorno sai em até 3 dias úteis.</p>
+      </div>
+
+      <div class="diagrama" aria-hidden="true">
+        <div class="tela">
+          <div class="tela-topo">
+            <div class="avatar">CM</div>
+            <div>
+              <strong>Camila Moraes</strong>
+              <span>Consultora comercial</span>
+            </div>
+          </div>
+          <div class="link-falso destaque">Falar no WhatsApp <em>rodízio</em></div>
+          <div class="link-falso">Agendar demonstração</div>
+          <div class="link-falso">Catálogo de produtos</div>
+          <div class="link-falso">LinkedIn</div>
+        </div>
+        <div class="rota">
+          <p class="rota-titulo">O clique vai para o próximo da fila</p>
+          <div class="rota-lista">
+            <span class="vendedor ativo" data-vendedor>Camila</span>
+            <span class="vendedor" data-vendedor>Rodrigo</span>
+            <span class="vendedor" data-vendedor>Tainá</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa clara" id="recursos">
+    <div class="envelope">
+      <h2 class="titulo-secao">Feito para quem gerencia um time inteiro, não um perfil só</h2>
+      <p class="sub-secao">Página de links genérica resolve para criador de conteúdo. Um comercial com cinco, dez ou trinta pessoas precisa de controle de acesso, padronização e número claro no fim do mês.</p>
+
+      <div class="recursos">
+        <div class="recurso">
+          <h3 class="recurso-rotulo">Páginas por vendedor</h3>
+          <p>Cada pessoa do time tem a própria página, com foto, cargo e contatos. O layout e a identidade visual ficam travados no padrão da empresa, e quem sai do time tem o acesso revogado sem derrubar a página.</p>
+        </div>
+        <div class="recurso">
+          <h3 class="recurso-rotulo">Rodízio de WhatsApp</h3>
+          <p>Cadastre os números do atendimento e o Links Solutions envia cada novo clique para o próximo da fila. Dá para pausar um número em férias ou fora do horário comercial sem mexer no link que já está circulando.</p>
+        </div>
+        <div class="recurso">
+          <h3 class="recurso-rotulo">Cliques por botão</h3>
+          <p>Relatório de acessos por página, por botão e por período, com origem do tráfego. Serve para saber se o investimento em anúncio, no Instagram ou no e-mail está trazendo conversa — e qual vendedor está recebendo.</p>
+        </div>
+        <div class="recurso">
+          <h3 class="recurso-rotulo">Links que continuam válidos</h3>
+          <p>O endereço da página não muda quando o vendedor troca de número ou de função. Cartão impresso, assinatura de e-mail e QR code continuam funcionando.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa" id="como-funciona">
+    <div class="envelope">
+      <h2 class="titulo-secao">Do cadastro ao primeiro relatório</h2>
+      <p class="sub-secao">A configuração inicial leva cerca de vinte minutos para um time de cinco pessoas.</p>
+      <div class="passos">
+        <div class="passo">
+          <h3>Cadastre a empresa</h3>
+          <p>Você envia logo, cores e os dados de contato. Isso vira o padrão visual de todas as páginas do time.</p>
+        </div>
+        <div class="passo">
+          <h3>Adicione o time</h3>
+          <p>Cada vendedor recebe um convite por e-mail, completa o perfil e já sai com a página publicada.</p>
+        </div>
+        <div class="passo">
+          <h3>Acompanhe os cliques</h3>
+          <p>O painel mostra acessos por pessoa e por botão. Os dados podem ser exportados em CSV a qualquer momento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa clara" id="precos">
+    <div class="envelope">
+      <h2 class="titulo-secao">Preços</h2>
+      <p class="sub-secao">Valores em reais, por empresa, sem taxa de instalação e sem fidelidade. O cancelamento é feito pelo próprio painel.</p>
+
+      <div class="planos">
+        <div class="plano">
+          <h3>Starter</h3>
+          <p class="resumo">Para testar a ferramenta com uma ou duas pessoas.</p>
+          <div class="preco">R$ 0<span> /mês</span></div>
+          <ul>
+            <li>2 páginas de links</li>
+            <li>Relatório de cliques dos últimos 30 dias</li>
+            <li>Suporte por e-mail em dias úteis</li>
+            <li class="ausente">Sem rodízio de WhatsApp</li>
+            <li class="ausente">Sem domínio próprio</li>
+          </ul>
+          <a href="#contato" class="botao discreto largo">Começar de graça</a>
+        </div>
+
+        <div class="plano principal">
+          <span class="selo">Mais usado</span>
+          <h3>Pro</h3>
+          <p class="resumo">Para times comerciais em operação.</p>
+          <div class="preco">R$ 49<span> /mês</span></div>
+          <ul>
+            <li>Páginas ilimitadas para o time</li>
+            <li>Rodízio de WhatsApp com pausa por número</li>
+            <li>Histórico completo de cliques e exportação em CSV</li>
+            <li>Integração com Google Analytics e Meta Pixel</li>
+            <li>Domínio próprio da empresa</li>
+            <li>Suporte prioritário por e-mail e WhatsApp</li>
+          </ul>
+          <a href="#contato" class="botao largo">Entrar na lista de espera</a>
+        </div>
+      </div>
+
+      <p class="aviso-preco">Os planos estão em beta fechado. Enquanto durar essa fase, o Plano Pro é liberado sem cobrança para os cadastros aprovados, e você é avisado por e-mail com pelo menos 30 dias de antecedência antes de qualquer cobrança começar.</p>
+    </div>
+  </section>
+
+  <section class="faixa" id="perguntas">
+    <div class="envelope">
+      <h2 class="titulo-secao">Perguntas frequentes</h2>
+      <div class="bloco">
+        <details>
+          <summary>O que significa estar em beta fechado?</summary>
+          <div class="conteudo"><p>A plataforma está funcionando, mas com número limitado de empresas para que a equipe consiga acompanhar de perto cada conta. Por isso o cadastro passa por aprovação manual antes da liberação do acesso.</p></div>
+        </details>
+        <details>
+          <summary>Preciso de um número de WhatsApp diferente para cada vendedor?</summary>
+          <div class="conteudo"><p>Sim, o rodízio distribui os cliques entre números distintos. Podem ser números pessoais de trabalho ou linhas corporativas — o Links Solutions apenas encaminha o visitante, não intermedeia nem armazena o conteúdo das conversas.</p></div>
+        </details>
+        <details>
+          <summary>Quem é o dono dos dados cadastrados?</summary>
+          <div class="conteudo"><p>A empresa contratante. Os dados podem ser exportados em CSV a qualquer momento pelo painel e são excluídos dos sistemas ativos em até 30 dias após o encerramento da conta, salvo obrigação legal de guarda.</p></div>
+        </details>
+        <details>
+          <summary>Existe fidelidade ou multa de cancelamento?</summary>
+          <div class="conteudo"><p>Não. A assinatura é mensal e o cancelamento pode ser feito pelo painel, com efeito ao fim do ciclo já pago. Não há multa nem taxa de saída.</p></div>
+        </details>
+        <details>
+          <summary>O Links Solutions é uma instituição financeira ou processa pagamentos?</summary>
+          <div class="conteudo"><p>Não. O Links Solutions é um software de gerenciamento de páginas de links e roteamento de contatos. Não realiza intermediação de pagamentos, não opera crédito e não custodia recursos de terceiros.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa clara" id="documentos">
+    <div class="envelope">
+      <h2 class="titulo-secao">Documentos</h2>
+      <p class="sub-secao">Política de privacidade, termos de uso e política de cookies na íntegra.</p>
+      <div class="bloco">
+
+        <details id="privacidade">
+          <summary>Política de Privacidade</summary>
+          <div class="conteudo">
+            <p class="atualizado">Última atualização: <mark class="preencher">[data]</mark></p>
+            <p>Esta política descreve como a <mark class="preencher">[Razão Social]</mark>, inscrita no CNPJ <mark class="preencher">[00.000.000/0001-00]</mark>, operadora da plataforma Links Solutions, trata os dados pessoais de visitantes e usuários, em conformidade com a Lei nº 13.709/2018 (LGPD).</p>
+
+            <h4>1. Dados que coletamos</h4>
+            <ul>
+              <li>Dados de cadastro: nome, e-mail corporativo, telefone, cargo e dados da empresa contratante.</li>
+              <li>Dados de conteúdo: informações que o usuário publica em sua página de links, como foto, cargo e canais de contato.</li>
+              <li>Dados de uso: endereço IP, tipo de dispositivo, navegador, páginas acessadas, botões clicados, data e hora do acesso e origem do tráfego.</li>
+              <li>Dados de cobrança: quando aplicável, informações necessárias à emissão de nota fiscal e à cobrança da assinatura.</li>
+            </ul>
+
+            <h4>2. Para que usamos</h4>
+            <p>Os dados são usados para criar e manter as páginas contratadas, autenticar usuários, gerar relatórios de cliques, prestar suporte, cumprir obrigações fiscais e legais e comunicar mudanças no serviço. A base legal é a execução do contrato, o cumprimento de obrigação legal ou o legítimo interesse, conforme o caso.</p>
+            <p>Não vendemos dados pessoais e não os cedemos a terceiros para publicidade.</p>
+
+            <h4>3. Compartilhamento</h4>
+            <p>Compartilhamos dados apenas com prestadores necessários à operação, como hospedagem em nuvem, envio de e-mail transacional, processamento de pagamentos e ferramentas de análise de tráfego, sempre limitados à finalidade contratada. Também podemos compartilhar dados por determinação de autoridade competente.</p>
+
+            <h4>4. Cookies e análise</h4>
+            <p>Utilizamos cookies necessários ao funcionamento da plataforma e, mediante consentimento, cookies de análise para medir o desempenho das páginas. Detalhes na Política de Cookies.</p>
+
+            <h4>5. Retenção</h4>
+            <p>Mantemos os dados enquanto durar a relação contratual. Encerrada a conta, os dados são excluídos dos sistemas ativos em até 30 dias, ressalvados os registros que a legislação obriga a conservar, como documentos fiscais e registros de acesso a aplicações de internet, guardados pelos prazos legais.</p>
+
+            <h4>6. Segurança</h4>
+            <p>Adotamos medidas técnicas e administrativas de proteção, incluindo criptografia em trânsito, controle de acesso por perfil e registro de atividades. Nenhum sistema é totalmente imune a incidentes; em caso de incidente relevante, comunicaremos os titulares afetados e a ANPD nos termos da lei.</p>
+
+            <h4>7. Direitos do titular</h4>
+            <p>Você pode solicitar confirmação de tratamento, acesso, correção, anonimização, portabilidade, eliminação, informação sobre compartilhamentos e revogação de consentimento. Os pedidos são atendidos em até 15 dias pelo e-mail <mark class="preencher">[privacidade@seudominio.com.br]</mark>.</p>
+
+            <h4>8. Encarregado pelo tratamento de dados</h4>
+            <p><mark class="preencher">[Nome do encarregado / DPO]</mark> — <mark class="preencher">[e-mail de contato]</mark>.</p>
+
+            <h4>9. Alterações</h4>
+            <p>Esta política pode ser atualizada. Alterações relevantes são comunicadas por e-mail aos usuários ativos com antecedência mínima de 15 dias.</p>
+          </div>
+        </details>
+
+        <details id="termos">
+          <summary>Termos de Uso</summary>
+          <div class="conteudo">
+            <p class="atualizado">Última atualização: <mark class="preencher">[data]</mark></p>
+            <p>Estes termos regulam o uso da plataforma Links Solutions, oferecida pela <mark class="preencher">[Razão Social]</mark>, CNPJ <mark class="preencher">[00.000.000/0001-00]</mark>, com sede em <mark class="preencher">[endereço completo]</mark>. Ao criar uma conta, o contratante declara que leu e concorda com estas condições.</p>
+
+            <h4>1. Objeto</h4>
+            <p>O Links Solutions é um software como serviço para criação de páginas de links, roteamento de contatos entre números de WhatsApp cadastrados e geração de relatórios de acesso. O serviço não constitui intermediação de pagamentos, atividade financeira, corretagem ou assessoria de qualquer natureza.</p>
+
+            <h4>2. Cadastro e acesso</h4>
+            <p>O cadastro é destinado a pessoas jurídicas e a maiores de 18 anos. O contratante é responsável pela veracidade das informações e pelo sigilo das credenciais, respondendo pelas ações praticadas em sua conta. Durante a fase de beta fechado, a aprovação do cadastro é discricionária.</p>
+
+            <h4>3. Planos, cobrança e cancelamento</h4>
+            <p>Os valores vigentes são os publicados nesta página. A assinatura é mensal, sem fidelidade, e o cancelamento pode ser solicitado pelo painel a qualquer momento, produzindo efeito ao término do ciclo já pago, sem multa. Reajustes e alterações de preço são comunicados com antecedência mínima de 30 dias.</p>
+
+            <h4>4. Uso aceitável</h4>
+            <p>É vedado utilizar a plataforma para disparo de mensagens não solicitadas em massa, divulgação de conteúdo ilícito, enganoso, discriminatório ou que viole direitos de terceiros, tentativa de acesso não autorizado aos sistemas, engenharia reversa ou revenda do serviço sem autorização escrita. O descumprimento autoriza a suspensão ou o encerramento da conta.</p>
+
+            <h4>5. Conteúdo do contratante</h4>
+            <p>O conteúdo publicado nas páginas é de responsabilidade exclusiva do contratante, que declara possuir os direitos necessários sobre marcas, imagens e textos utilizados. A plataforma pode remover conteúdo mediante ordem judicial ou notificação fundamentada.</p>
+
+            <h4>6. Disponibilidade</h4>
+            <p>Empregamos esforços para manter o serviço disponível de forma contínua, admitidas paradas programadas para manutenção, comunicadas previamente sempre que possível. Durante a fase de beta, não há garantia contratual de nível de serviço.</p>
+
+            <h4>7. Propriedade intelectual</h4>
+            <p>O software, a marca Links Solutions, o código-fonte e a documentação pertencem à contratada. A contratação concede licença de uso limitada, não exclusiva e intransferível durante a vigência do contrato.</p>
+
+            <h4>8. Limitação de responsabilidade</h4>
+            <p>A contratada não responde por lucros cessantes, perda de oportunidade comercial ou danos indiretos decorrentes do uso ou da indisponibilidade da plataforma. Nada nestes termos afasta os direitos assegurados ao consumidor pela legislação aplicável.</p>
+
+            <h4>9. Encerramento</h4>
+            <p>Encerrada a conta, o contratante pode exportar seus dados em até 30 dias, período após o qual os registros são eliminados dos sistemas ativos, ressalvadas as hipóteses de guarda obrigatória.</p>
+
+            <h4>10. Lei aplicável e foro</h4>
+            <p>Aplica-se a legislação brasileira. Fica eleito o foro da comarca de <mark class="preencher">[cidade/UF]</mark> para dirimir controvérsias, com renúncia a qualquer outro.</p>
+          </div>
+        </details>
+
+        <details id="cookies">
+          <summary>Política de Cookies</summary>
+          <div class="conteudo">
+            <p class="atualizado">Última atualização: <mark class="preencher">[data]</mark></p>
+            <p>Cookies são pequenos arquivos gravados no navegador para permitir o funcionamento do site e medir seu desempenho.</p>
+            <h4>Cookies necessários</h4>
+            <p>Mantêm a sessão autenticada, guardam preferências básicas e protegem contra requisições fraudulentas. Não podem ser desativados sem inviabilizar o uso do painel.</p>
+            <h4>Cookies de análise</h4>
+            <p>Registram páginas visitadas e botões clicados de forma agregada, para entender o desempenho das páginas de links. São ativados apenas mediante consentimento.</p>
+            <h4>Como gerenciar</h4>
+            <p>É possível bloquear ou apagar cookies nas configurações do navegador. O bloqueio dos cookies necessários pode impedir o acesso ao painel.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa" id="contato">
+    <div class="envelope">
+      <h2 class="titulo-secao">Falar com a equipe</h2>
+      <p class="sub-secao">Atendimento em dias úteis, das 8h às 18h (horário de Brasília). Respondemos em até 1 dia útil.</p>
+      <div class="contato-grade">
+        <div class="contato-item">
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="envelope">
+    <div class="rodape-grade">
+      <a class="marca" href="#topo">
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#fff"/><path d="M9 10h14L9 22h14" fill="none" stroke="#7A1F2B" stroke-width="3" stroke-linecap="square"/></svg>
+        Links Solutions
+      </a>
+      <nav class="rodape-links" aria-label="Links do rodapé">
+        <a href="#recursos">Recursos</a>
+        <a href="#precos">Preços</a>
+        <a href="#privacidade">Privacidade</a>
+        <a href="#termos">Termos de uso</a>
+        <a href="#cookies">Cookies</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+    <div class="rodape-dados">
+      <p>&copy; <span id="ano">2026</span> Links Solutions Servicos de Tecnologia LTDA. Todos os direitos reservados.</p>
+      <p><mark class="preencher">Links Solutions Servicos de Tecnologia LTDA</mark> — CNPJ <mark class="preencher">46.892.789/0001-33</mark> — <mark class="preencher">Av Dr Cardoso de Melo, 1855 Andar 8, Vila Olimpia, São Paulo - SP CEP: 04548-903</mark></p>
+      <p>Plataforma de software para gestão de páginas de links. Não realizamos intermediação de pagamentos nem atividades de instituição financeira.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  var botaoMenu = document.getElementById('abrirMenu');
+  var menu = document.getElementById('menu');
+  botaoMenu.addEventListener('click', function () {
+    var aberto = menu.classList.toggle('aberto');
+    botaoMenu.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      menu.classList.remove('aberto');
+      botaoMenu.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Demonstra o rodízio: o destaque avança de um vendedor para o outro.
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var chips = document.querySelectorAll('[data-vendedor]');
+    var atual = 0;
+    setInterval(function () {
+      chips[atual].classList.remove('ativo');
+      atual = (atual + 1) % chips.length;
+      chips[atual].classList.add('ativo');
+    }, 2200);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Links Solutions — Acessar o Painel</title>
+<meta name="description" content="Acesse o painel do Links Solutions para gerenciar o rodízio de WhatsApp, páginas de links e métricas do seu time comercial.">
+<meta name="theme-color" content="#7A1F2B">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%237A1F2B'/%3E%3Cpath d='M9 10h14L9 22h14' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='square'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --papel:#ffffff;
+  --areia:#efece6;
+  --tinta:#221f1e;
+  --tinta-media:#5b5450;
+  --linha:#d9d3ca;
+  --vinho:#7a1f2b;
+  --vinho-escuro:#5a141e;
+  --sinal:#1d6b66;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --texto:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --largura:1120px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  background:var(--areia);
+  color:var(--tinta);
+  font-family:var(--texto);
+  font-size:17px;
+  line-height:1.65;
+  text-rendering:optimizeLegibility;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+h1,h2,h3,h4,.fonte-display{font-family:var(--display);font-weight:700;letter-spacing:-.025em;line-height:1.1}
+
+a{color:var(--vinho)}
+
+:focus-visible{outline:2px solid var(--vinho);outline-offset:3px;border-radius:2px}
+
+.envelope{width:100%;max-width:var(--largura);margin-inline:auto;padding-inline:1.5rem}
+
+/* ---------- cabeçalho ---------- */
+.topo{
+  background:var(--papel);
+  border-bottom:1px solid var(--linha);
+}
+.topo-interno{display:flex;align-items:center;justify-content:space-between;min-height:68px}
+.marca{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-size:1.2rem;font-weight:700;color:var(--tinta);text-decoration:none;letter-spacing:-.03em}
+.marca svg{display:block}
+
+.menu-voltar a{
+  font-family:var(--display);
+  font-size:.92rem;
+  font-weight:500;
+  color:var(--tinta-media);
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:.3rem;
+}
+.menu-voltar a:hover{color:var(--tinta)}
+
+/* ---------- área principal (login) ---------- */
+.login-area{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:3.5rem 1.5rem;
+}
+
+.login-cartao{
+  background:var(--papel);
+  border:1px solid var(--linha);
+  border-radius:8px;
+  padding:2.5rem 2.25rem;
+  width:100%;
+  max-width:420px;
+}
+
+.login-cabecalho{
+  text-align:center;
+  margin-bottom:2rem;
+}
+
+.login-cabecalho h1{
+  font-size:1.8rem;
+  margin-bottom:.5rem;
+}
+
+.login-cabecalho p{
+  font-size:.95rem;
+  color:var(--tinta-media);
+}
+
+.campo{
+  margin-bottom:1.3rem;
+}
+
+.campo label{
+  display:block;
+  font-family:var(--display);
+  font-size:.88rem;
+  font-weight:600;
+  color:var(--tinta);
+  margin-bottom:.4rem;
+}
+
+.campo input[type="email"],
+.campo input[type="password"]{
+  width:100%;
+  padding:.75rem 1rem;
+  font-family:var(--display);
+  font-size:.95rem;
+  color:var(--tinta);
+  background:var(--papel);
+  border:1px solid var(--linha);
+  border-radius:4px;
+  outline:none;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+
+.campo input[type="email"]:focus,
+.campo input[type="password"]:focus{
+  border-color:var(--vinho);
+  box-shadow:0 0 0 3px rgba(122, 31, 43, 0.12);
+}
+
+.opcoes-form{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:var(--display);
+  font-size:.85rem;
+  margin-bottom:1.5rem;
+}
+
+.lembrar{
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+  color:var(--tinta-media);
+  cursor:pointer;
+}
+
+.lembrar input{
+  accent-color:var(--vinho);
+  width:1rem;
+  height:1rem;
+  cursor:pointer;
+}
+
+.esqueci{
+  color:var(--vinho);
+  text-decoration:none;
+  font-weight:500;
+}
+.esqueci:hover{text-decoration:underline}
+
+.botao{
+  display:inline-block;
+  width:100%;
+  font-family:var(--display);
+  font-weight:600;
+  font-size:1rem;
+  background:var(--vinho);
+  color:#fff;
+  padding:.8rem 1.3rem;
+  border-radius:4px;
+  text-decoration:none;
+  border:1px solid var(--vinho);
+  cursor:pointer;
+  transition:background .15s ease;
+  text-align:center;
+}
+.botao:hover{background:var(--vinho-escuro);border-color:var(--vinho-escuro)}
+
+.aviso-beta{
+  margin-top:1.75rem;
+  padding-top:1.25rem;
+  border-top:1px solid var(--linha);
+  text-align:center;
+  font-size:.88rem;
+  color:var(--tinta-media);
+}
+
+.aviso-beta a{
+  font-family:var(--display);
+  font-weight:600;
+  text-decoration:none;
+}
+.aviso-beta a:hover{text-decoration:underline}
+
+/* ---------- rodapé ---------- */
+.rodape{
+  background:var(--tinta);
+  color:#c9c2bd;
+  padding:2rem 0;
+  font-size:.85rem;
+  margin-top:auto;
+}
+.rodape-dados{
+  text-align:center;
+  line-height:1.7;
+  color:#a49c97;
+}
+
+@media (max-width:480px){
+  .login-cartao{padding:1.75rem 1.25rem}
+}
+</style>
+</head>
+
+<body>
+
+<header class="topo">
+  <div class="envelope topo-interno">
+    <a class="marca" href="index.html">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#7A1F2B"/><path d="M9 10h14L9 22h14" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="square"/></svg>
+      Links Solutions
+    </a>
+    <div class="menu-voltar">
+      <a href="index.html">← Voltar para o site</a>
+    </div>
+  </div>
+</header>
+
+<main class="login-area">
+  <div class="login-cartao">
+    <div class="login-cabecalho">
+      <h1>Acessar painel</h1>
+      <p>Gerencie as páginas e o rodízio do seu time comercial</p>
+    </div>
+
+    <form action="#" method="POST">
+      <div class="campo">
+        <label for="email">E-mail corporativo</label>
+        <input type="email" id="email" name="email" placeholder="e-mail" required autocomplete="email">
+      </div>
+
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="••••••••" required autocomplete="current-password">
+      </div>
+
+      <div class="opcoes-form">
+        <label class="lembrar">
+          <input type="checkbox" name="lembrar" id="lembrar">
+          Lembrar acesso
+        </label>
+        <a href="#" class="esqueci">Esqueceu a senha?</a>
+      </div>
+
+      <button type="submit" class="botao">Entrar na plataforma</button>
+    </form>
+
+    <div class="aviso-beta">
+      Ainda não tem acesso? <a href="index.html#precos">Entrar na lista do beta</a>
+    </div>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="envelope">
+    <div class="rodape-dados">
+      <p>&copy; <span id="ano">2026</span> Links Solutions Servicos de Tecnologia LTDA. Todos os direitos reservados.</p>
+      <p>CNPJ 46.892.789/0001-33 — Av Dr Cardoso de Melo, 1855 Andar 8, Vila Olimpia, São Paulo - SP</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
